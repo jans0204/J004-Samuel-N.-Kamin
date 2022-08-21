@@ -1,0 +1,70 @@
+﻿J004：Samuel N. Kamin
+      Programming languages - an interpreter-based approach.
+      Addison-Wesley 1990,
+      ISBN 978-0-201-06824-5, pp. I-XII, 1-640
+
+1. 下載原始碼：
+
+   https://kamin.cs.illinois.edu/plbook/distr.tar.gz
+
+2. 安裝 Free Pascal Compiler
+
+   https://sourceforge.net/projects/freepascal/files/Win32/3.2.2/fpc-3.2.2.i386-win32.exe
+
+3. 編寫編譯碼：mk-exe.bat
+
+   fpc -MISO chap1.p > chap1.log 2>&1
+   fpc -MISO lisp.p > lisp.log 2>&1
+   fpc -MISO apl.p > apl.log 2>&1
+   fpc -MISO scheme.p > scheme.log 2>&1
+   fpc -MISO sasl.p > sasl.log 2>&1
+   fpc -MISO clu.p > clu.log 2>&1
+   fpc -MISO smalltalk.p > smalltalk.log 2>&1
+   fpc -MISO prolog.p > prolog.log 2>&1
+
+   fpc -MISO lisp-stack.p > lisp-stack.log 2>&1
+   fpc -MISO lisp-msgc.p > lisp-msgc.log 2>&1
+   fpc -MISO lisp-ssgc.p > lisp-ssgc.log 2>&1
+   fpc -MISO lisp-refcnt.p > lisp-refcnt.log 2>&1
+
+4. 抽取 distr.tar.gz\distr\*.* 至工作目錄，例如：R:\src\  (RAMDRIVE)
+
+5. 將 mk-exe.bat 加入 R:\src\
+
+6. 在 R:\src\ 開啟 Console Cmd (命令提示字元)，執行 mk-exe.bat 開始編譯，產生 12 個執行檔。
+
+7. 測試：
+
+   chap1 < code.ch1 > chap1.out
+   lisp < code.lsp > lisp.out
+   apl < code.apl > apl.out
+   scheme < code.sch > scheme.out
+   sasl < code.ssl > sasl.out
+   clu < code.clu > clu.out
+   smalltalk < code.smt > smalltalk.out
+   prolog < code1.pro > prolog1.out
+   prolog < code2.pro > prolog2.out
+
+   lisp-stack < code.gc.lsp > lisp-stack.out
+   lisp-msgc < code.gc.lsp > lisp-msgc.out
+   lisp-ssgc < code.gc.lsp > lisp-ssgc.out
+   lisp-refcnt < code.gc.lsp > lisp-refcnt.out
+
+8. 比較：
+
+   fc code.ch1.o chap1.out > chap1.diff
+   fc code.lsp.o lisp.out > lisp.diff
+   fc code.apl.o apl.out > apl.diff
+   fc code.sch.o scheme.out > scheme.diff
+   fc code.ssl.o sasl.out > sasl.diff
+   fc code.clu.o clu.out > clu.diff
+   fc code.smt.o smalltalk.out > smalltalk.diff
+   fc code1.pro.o prolog1.out > prolog1.diff
+   fc code2.pro.o prolog2.out > prolog2.diff
+
+   fc code.stack.o lisp-stack.out > lisp-stack.diff
+   fc code.msgc.o lisp-msgc.out > lisp-msgc.diff
+   fc code.ssgc.o lisp-ssgc.out > lisp-ssgc.diff
+   fc code.refcnt.o lisp-refcnt.out > lisp-refcnt.diff
+
+9. https://github.com/jans0204/J004-Samuel-N.-Kamin
